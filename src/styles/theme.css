@@ -1,0 +1,169 @@
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* DGE Brand Colors */
+  --dge-tech-blue: #215A9E;
+  --dge-light-blue: #7AA4C4;
+  --dge-reliable-blue: #063360;
+  --dge-grey: #545860;
+  --dge-white: #FFFFFF;
+  --dge-black: #000000;
+  
+  /* Typography */
+  --font-size: 16px;
+  --font-weight-bold: 700;
+  --font-weight-semibold: 600;
+  --font-weight-regular: 400;
+  
+  /* Semantic Colors */
+  --background: var(--dge-white);
+  --foreground: var(--dge-black);
+  --card: var(--dge-white);
+  --card-foreground: var(--dge-black);
+  --popover: var(--dge-white);
+  --popover-foreground: var(--dge-black);
+  --primary: var(--dge-tech-blue);
+  --primary-foreground: var(--dge-white);
+  --secondary: var(--dge-light-blue);
+  --secondary-foreground: var(--dge-tech-blue);
+  --muted: var(--dge-grey);
+  --muted-foreground: var(--dge-white);
+  --accent: var(--dge-light-blue);
+  --accent-foreground: var(--dge-tech-blue);
+  --destructive: #d4183d;
+  --destructive-foreground: var(--dge-white);
+  --border: rgba(84, 88, 96, 0.2);
+  --input: transparent;
+  --input-background: #f3f3f5;
+  --switch-background: #cbced4;
+  --ring: var(--dge-light-blue);
+  --radius: 0.75rem;
+}
+
+.dark {
+  --background: var(--dge-reliable-blue);
+  --foreground: var(--dge-white);
+  --card: rgba(33, 90, 158, 0.1);
+  --card-foreground: var(--dge-white);
+  --popover: var(--dge-reliable-blue);
+  --popover-foreground: var(--dge-white);
+  --primary: var(--dge-tech-blue);
+  --primary-foreground: var(--dge-white);
+  --secondary: var(--dge-light-blue);
+  --secondary-foreground: var(--dge-tech-blue);
+  --muted: var(--dge-grey);
+  --muted-foreground: var(--dge-light-blue);
+  --accent: var(--dge-light-blue);
+  --accent-foreground: var(--dge-white);
+  --border: rgba(122, 164, 196, 0.15);
+  --input: rgba(122, 164, 196, 0.1);
+  --ring: var(--dge-light-blue);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+    font-family: 'Noto Kufi Arabic', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Scrollbar hiding utility */
+  .scrollbar-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /**
+  * Default typography styles for HTML elements (h1-h4, p, label, button, input).
+  * These are in @layer base, so Tailwind utility classes (like text-sm, text-lg) automatically override them.
+  */
+
+  html {
+    font-size: var(--font-size);
+  }
+
+  h1 {
+    font-weight: var(--font-weight-bold);
+    line-height: 1.4;
+  }
+
+  h2 {
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.4;
+  }
+
+  h3 {
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.4;
+  }
+
+  h4 {
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.4;
+  }
+
+  label {
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.5;
+  }
+
+  button {
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.5;
+  }
+
+  input {
+    font-weight: var(--font-weight-regular);
+    line-height: 1.5;
+  }
+
+  p {
+    font-weight: var(--font-weight-regular);
+    line-height: 1.6;
+  }
+
+  /* AI Panel Border Animation (CSS Fallback) */
+  @keyframes rotate-border {
+    0% {
+      filter: hue-rotate(0deg);
+    }
+    100% {
+      filter: hue-rotate(360deg);
+    }
+  }
+}
